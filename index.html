@@ -271,7 +271,7 @@ footer .en{font-family:var(--en);letter-spacing:.34em;color:var(--gold);font-siz
     <div class="stats">
       <div class="stat"><b id="statTotal">0</b><span>LECTURES</span></div>
       <div class="stat"><b id="statMin">0</b><span>MINUTES</span></div>
-      <div class="stat"><b>4</b><span>CATEGORIES</span></div>
+      <div class="stat"><b id="statCat">0</b><span>CATEGORIES</span></div>
     </div>
   </div>
 </section>
@@ -280,12 +280,13 @@ footer .en{font-family:var(--en);letter-spacing:.34em;color:var(--gold);font-siz
   <div class="wrap">
     <div class="guide-inner">
       <h2>視聴の進め方</h2>
-      <p class="note">A → B → 配属先のC の順。各カテゴリ内は番号順に見るだけで大丈夫です。</p>
+      <p class="note">★ → A → B → 配属先のC の順。各カテゴリ内は番号順に見るだけで大丈夫です。</p>
       <div class="steps">
-        <div class="step"><i>01</i><strong>A｜全員必修</strong><small>チームの一員として動ける状態になる。入ったらまずここから。</small></div>
-        <div class="step"><i>02</i><strong>B｜考え方</strong><small>全部門が同じ言葉で話せるようにする。本命のカテゴリ。</small></div>
-        <div class="step"><i>03</i><strong>C｜部門別</strong><small>自分の配属先だけでよい。手が動くようになる型。</small></div>
-        <div class="step"><i>04</i><strong>1対1の対話</strong><small>個別のフィードバックと判断は、動画ではなく桂と直接。</small></div>
+        <div class="step"><i>01</i><strong>★｜特別編</strong><small>このチームで何をやるのか。いちばん最初に見てほしい1本。</small></div>
+        <div class="step"><i>02</i><strong>A｜全員必修</strong><small>考え方の土台。目的と戦略、具体と抽象、消費者視点。</small></div>
+        <div class="step"><i>03</i><strong>B｜考え方</strong><small>全部門が同じ言葉で話せるようにする。本命のカテゴリ。</small></div>
+        <div class="step"><i>04</i><strong>C｜部門別</strong><small>自分の配属先だけでよい。手が動くようになる型。</small></div>
+        <div class="step"><i>05</i><strong>1対1の対話</strong><small>個別のフィードバックと判断は、動画ではなく桂と直接。</small></div>
       </div>
     </div>
   </div>
@@ -346,15 +347,17 @@ footer .en{font-family:var(--en);letter-spacing:.34em;color:var(--gold);font-siz
    空のままのものは「準備中」と表示されます。
    ========================================================================= */
 const VIDEOS = [
-  /* ---- A. 全員必修（8本） ---- */
-  {id:'A-1', cat:'A', title:'このプロジェクトが目指すもの', desc:'今年の目標人数と、なぜその数字なのか。何のためにやっているのか。', min:5,  youtube:''},
-  {id:'A-2', cat:'A', title:'やってはいけないこと',         desc:'学校名・肩書き・数字・個人情報・SNS掲載の線引き。議論の余地なく守るルール。', min:5, youtube:'', status:'hold', note:'対外使用許可の確定待ち'},
-  {id:'A-3', cat:'A', title:'週の回り方',                   desc:'週初に共有シートを書く／週末30分の会議／依頼は週初にまとめて出す。', min:5,  youtube:''},
-  {id:'A-4', cat:'A', title:'自分で決めていいこと・いけないこと', desc:'桂が握る3つ（数値配分・対外線引き・予算総枠）と、それ以外はリーダー判断。', min:5, youtube:''},
-  {id:'A-5', cat:'A', title:'健全な恐怖を持つ',             desc:'個人の失敗はチームの失敗。だから早く言う、早く直す。', min:5,  youtube:''},
-  {id:'A-6', cat:'A', title:'仲間と競い合い、喰いあって成長する', desc:'協力と競争は矛盾しない。チーム内で高め合うということ。', min:5, youtube:''},
-  {id:'A-7', cat:'A', title:'厳しい現実をそのまま伝える／会議は必ず発言する', desc:'率直さの文化。事実を曲げない、黙って座らない。', min:5, youtube:''},
-  {id:'A-8', cat:'A', title:'結果がすべて／週次の振り返りと事実の報告', desc:'週1回、桂へ事実を報告する。振り返りの型。', min:5, youtube:''},
+  /* ---- 特別編（まず最初に見る） ---- */
+  {id:'S-1', cat:'S', title:'マーケティングチームの本質', desc:'このチームで何をやるのか。桂から、最初に見てほしい1本。', min:0, youtube:'cPmRrymEWNg', note:'特に見てほしい1本'},
+
+  /* ---- A. 全員必修（7本） ---- */
+  {id:'A-1', cat:'A', title:'目的・戦略・戦術論',     desc:'目的は固定、戦略・戦術は変えていい。この2つを分けて考える。', min:0, youtube:'6ptqgFuc2Ac'},
+  {id:'A-2', cat:'A', title:'具体と抽象',             desc:'具体と抽象は別々の箱ではなく、はしごのような連続した段階。', min:0, youtube:'eQLF6vWq3qg'},
+  {id:'A-3', cat:'A', title:'抽象から具体へ',         desc:'抽象で掴んだものを、実際の打ち手に落とす。', min:0, youtube:'zFZhxpFBles'},
+  {id:'A-4', cat:'A', title:'逆算思考・順算思考',     desc:'着地から逆に辿るか、今から積み上げるか。', min:0, youtube:'mY_XddrbgAs'},
+  {id:'A-5', cat:'A', title:'意思決定と行動の責任者', desc:'決めるのは誰か、やり切るのは誰か。', min:0, youtube:'szwzMGDy7OE'},
+  {id:'A-6', cat:'A', title:'会議で大事なこと',       desc:'会議の場で何をすべきか。', min:0, youtube:'2sTGMcrO1JA'},
+  {id:'A-7', cat:'A', title:'消費者視点',             desc:'売り手の都合ではなく、相手の見え方から考える。', min:0, youtube:'fOVKtOJQXBo'},
 
   /* ---- B. 考え方＝共通言語（9本＋補足1本） ---- */
   {id:'B-1', cat:'B', title:'マーケティングの本質と価値設計', desc:'消費者視点とは何か。理論編の起点になる回。', min:8,  youtube:'Ww0EYioDaiM'},
@@ -381,7 +384,8 @@ const VIDEOS = [
 ];
 
 const CATEGORIES = [
-  {key:'A',  mark:'A',  label:'全員必修',   sub:'全メンバー・入ったら最初に見る'},
+  {key:'S',  mark:'★',  label:'特別編',     sub:'全メンバー・いちばん最初に見る'},
+  {key:'A',  mark:'A',  label:'全員必修',   sub:'全メンバー・考え方の土台になる7本'},
   {key:'B',  mark:'B',  label:'考え方',     sub:'全メンバー・共通言語をつくる本命カテゴリ'},
   {key:'C2', mark:'C2', label:'SNS・分析',  sub:'SNS・分析担当のみ'},
   {key:'C3', mark:'C3', label:'編集チーム', sub:'編集チームのみ'}
@@ -486,7 +490,7 @@ function card(v){
   b.innerHTML =
     '<div class="card-top">' +
       '<span class="card-no">' + v.id + '</span>' +
-      '<span class="card-time">' + (v.min ? v.min + ' min' : 'SLIDE') + '</span>' +
+      '<span class="card-time">' + (v.min ? v.min + ' min' : (statusOf(v) === 'supp' ? 'SLIDE' : '&mdash;')) + '</span>' +
     '</div>' +
     '<h3>' + esc(v.title) + '</h3>' +
     '<p>' + esc(v.desc) + '</p>' +
@@ -584,6 +588,7 @@ $('#onlyUnwatched').addEventListener('change', e => { onlyUnwatched = e.target.c
 /* ---- 初期化 ---- */
 $('#statTotal').textContent = VIDEOS.length;
 $('#statMin').textContent   = VIDEOS.reduce((s,v) => s + (v.min||0), 0);
+$('#statCat').textContent   = CATEGORIES.length;
 renderTabs();
 renderList();
 
