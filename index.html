@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>梅光学院 OSプロジェクト｜講義動画ライブラリ</title>
+<meta name="description" content="梅光学院 オープンスクールプロジェクト マーケティングチームの講義動画ライブラリ。A→B→配属先のCの順に視聴してください。">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;600;700&family=Cormorant+Garamond:wght@500;600&display=swap" rel="stylesheet">
+<style>
+/* =======================================================================
+   梅光学院 OSプロジェクト 講義動画ライブラリ
+   ネイビー × ゴールド
+   ======================================================================= */
+:root{
+  --navy-950:#060F20;
+  --navy-900:#0A1729;
+  --navy-850:#0E1E35;
+  --navy-800:#122542;
+  --navy-700:#1A3157;
+  --navy-600:#24406B;
+  --gold:#C8A96A;
+  --gold-bright:#E5CD97;
+  --gold-dim:#8C7644;
+  --ivory:#F2EFE8;
+  --ivory-dim:#CFCCC4;
+  --muted:#8D9CB5;
+  --line:rgba(200,169,106,.22);
+  --line-soft:rgba(255,255,255,.07);
+  --serif:'Noto Serif JP','Hiragino Mincho ProN','Yu Mincho',serif;
+  --sans:'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif;
+  --en:'Cormorant Garamond',Georgia,serif;
+  --shadow:0 18px 40px rgba(0,0,0,.38);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:132px}
+body{
+  font-family:var(--sans);
+  background:var(--navy-950);
+  color:var(--ivory);
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+  -webkit-tap-highlight-color:transparent;
+}
+body::before{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:
+    radial-gradient(1100px 600px at 78% -8%, rgba(200,169,106,.10), transparent 62%),
+    radial-gradient(900px 520px at 6% 4%, rgba(36,64,107,.55), transparent 60%);
+}
+.wrap{width:min(1180px,92vw);margin:0 auto}
+a{color:inherit}
+
+/* ---------- ヘッダー ---------- */
+header{
+  position:sticky;top:0;z-index:80;
+  background:rgba(6,15,32,.86);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+}
+.hdr{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0}
+.brand{display:flex;align-items:center;gap:13px;min-width:0}
+.crest{
+  width:38px;height:38px;flex:0 0 38px;border-radius:50%;
+  border:1px solid var(--gold);display:grid;place-items:center;
+  background:linear-gradient(150deg,rgba(200,169,106,.20),rgba(200,169,106,0));
+}
+.crest span{font-family:var(--serif);font-size:16px;color:var(--gold-bright);line-height:1}
+.brand-txt{min-width:0}
+.brand-name{font-family:var(--serif);font-size:15px;letter-spacing:.14em;color:var(--ivory);white-space:nowrap}
+.brand-sub{font-family:var(--en);font-size:11.5px;letter-spacing:.34em;color:var(--gold);text-transform:uppercase;white-space:nowrap}
+.hdr-progress{display:flex;align-items:center;gap:12px}
+.ring{position:relative;width:44px;height:44px;flex:0 0 44px}
+.ring svg{transform:rotate(-90deg)}
+.ring .bg{stroke:rgba(255,255,255,.12)}
+.ring .fg{stroke:var(--gold);stroke-linecap:round;transition:stroke-dasharray .5s ease}
+.ring b{
+  position:absolute;inset:0;display:grid;place-items:center;
+  font-size:11px;font-weight:700;color:var(--gold-bright);letter-spacing:0
+}
+.hdr-progress .lbl{font-size:11px;letter-spacing:.18em;color:var(--muted)}
+.hdr-progress .val{font-size:13px;color:var(--ivory-dim)}
+@media(max-width:720px){.hdr-progress .txt{display:none}}
+
+/* ---------- ヒーロー ---------- */
+.hero{position:relative;z-index:1;padding:72px 0 56px;border-bottom:1px solid var(--line-soft)}
+.hero .eyebrow{
+  font-family:var(--en);font-size:13px;letter-spacing:.46em;color:var(--gold);
+  text-transform:uppercase;margin-bottom:22px
+}
+.hero h1{
+  font-family:var(--serif);font-weight:600;line-height:1.42;
+  font-size:clamp(27px,4.6vw,46px);letter-spacing:.04em;margin-bottom:8px
+}
+.hero h1 em{font-style:normal;color:var(--gold-bright)}
+.rule{width:64px;height:1px;background:linear-gradient(90deg,var(--gold),transparent);margin:26px 0 22px}
+.hero p{max-width:640px;color:var(--ivory-dim);font-size:15px}
+.stats{display:flex;flex-wrap:wrap;gap:0;margin-top:38px;border-top:1px solid var(--line-soft)}
+.stat{padding:18px 34px 4px 0;margin-right:34px;border-right:1px solid var(--line-soft)}
+.stat:last-child{border-right:0}
+.stat b{display:block;font-family:var(--en);font-size:34px;font-weight:600;color:var(--gold-bright);line-height:1.1}
+.stat span{font-size:11.5px;letter-spacing:.2em;color:var(--muted)}
+@media(max-width:560px){.stat{padding-right:20px;margin-right:20px}.stat b{font-size:27px}}
+
+/* ---------- 視聴の進め方 ---------- */
+.guide{position:relative;z-index:1;padding:44px 0}
+.guide-inner{
+  border:1px solid var(--line);border-radius:4px;padding:26px 28px;
+  background:linear-gradient(160deg,rgba(26,49,87,.44),rgba(10,23,41,.30));
+}
+.guide h2{font-family:var(--serif);font-size:16px;letter-spacing:.12em;margin-bottom:4px}
+.guide .note{font-size:12.5px;color:var(--muted);margin-bottom:20px}
+.steps{display:flex;flex-wrap:wrap;align-items:stretch;gap:12px}
+.step{
+  flex:1 1 190px;border:1px solid var(--line-soft);border-radius:3px;padding:14px 16px;
+  background:rgba(6,15,32,.42)
+}
+.step i{font-family:var(--en);font-style:normal;font-size:22px;color:var(--gold);letter-spacing:.06em}
+.step strong{display:block;font-size:13.5px;font-weight:500;margin-top:2px}
+.step small{display:block;font-size:11.5px;color:var(--muted);line-height:1.6;margin-top:4px}
+
+/* ---------- プレーヤー ---------- */
+.stage{position:relative;z-index:1;padding:8px 0 4px;scroll-margin-top:116px}
+.stage-inner{
+  border:1px solid var(--line);border-radius:5px;overflow:hidden;
+  background:linear-gradient(170deg,var(--navy-850),var(--navy-950));box-shadow:var(--shadow)
+}
+.frame{position:relative;width:100%;aspect-ratio:16/9;background:#000}
+.frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.frame .empty{
+  position:absolute;inset:0;display:grid;place-content:center;justify-items:center;gap:14px;
+  text-align:center;padding:24px;
+  background:
+    radial-gradient(520px 260px at 50% 34%, rgba(200,169,106,.10), transparent 70%),
+    linear-gradient(170deg,var(--navy-800),var(--navy-950));
+}
+.frame .empty svg{opacity:.85}
+.frame .empty b{font-family:var(--serif);font-size:16px;font-weight:600;letter-spacing:.1em;color:var(--gold-bright)}
+.frame .empty span{font-size:12.5px;color:var(--muted);max-width:420px;line-height:1.8}
+.stage-bar{display:flex;flex-wrap:wrap;align-items:center;gap:14px;padding:18px 22px;border-top:1px solid var(--line-soft)}
+.stage-meta{flex:1 1 260px;min-width:0}
+.stage-meta .kicker{font-family:var(--en);font-size:12px;letter-spacing:.3em;color:var(--gold)}
+.stage-meta h3{font-family:var(--serif);font-size:18px;font-weight:600;letter-spacing:.04em;margin-top:2px}
+.stage-meta p{font-size:12.5px;color:var(--muted);margin-top:4px}
+.stage-actions{display:flex;gap:8px;flex-wrap:wrap}
+.btn{
+  font-family:var(--sans);font-size:12.5px;letter-spacing:.06em;cursor:pointer;
+  padding:9px 16px;border-radius:2px;border:1px solid var(--line);
+  background:transparent;color:var(--ivory-dim);transition:.18s
+}
+.btn:hover{border-color:var(--gold);color:var(--gold-bright)}
+.btn:disabled{opacity:.32;cursor:not-allowed}
+.btn-gold{background:linear-gradient(135deg,var(--gold),var(--gold-dim));border-color:transparent;color:#0A1729;font-weight:700}
+.btn-gold:hover{color:#0A1729;filter:brightness(1.08)}
+.btn-gold.on{background:transparent;border-color:var(--gold);color:var(--gold-bright)}
+
+/* ---------- ツールバー ---------- */
+.toolbar{
+  position:sticky;top:67px;z-index:60;margin-top:40px;
+  background:rgba(6,15,32,.9);backdrop-filter:blur(12px);
+  border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft)
+}
+.toolbar-inner{display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:12px 0}
+.tabs{display:flex;flex-wrap:wrap;gap:6px;flex:1 1 auto}
+.tab{
+  font-size:12.5px;letter-spacing:.06em;padding:7px 14px;border-radius:2px;cursor:pointer;
+  border:1px solid transparent;background:rgba(255,255,255,.045);color:var(--muted);transition:.18s;font-family:var(--sans)
+}
+.tab:hover{color:var(--ivory)}
+.tab[aria-selected="true"]{border-color:var(--gold);color:var(--gold-bright);background:rgba(200,169,106,.09)}
+.search{position:relative}
+.search input{
+  font-family:var(--sans);font-size:12.5px;color:var(--ivory);
+  background:rgba(255,255,255,.045);border:1px solid var(--line-soft);border-radius:2px;
+  padding:8px 12px 8px 32px;width:210px;outline:none;transition:.18s
+}
+.search input:focus{border-color:var(--gold)}
+.search input::placeholder{color:#6C7B92}
+.search svg{position:absolute;left:10px;top:50%;transform:translateY(-50%);opacity:.55}
+.toggle{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--muted);cursor:pointer;user-select:none}
+.toggle input{accent-color:var(--gold);width:14px;height:14px;cursor:pointer}
+@media(max-width:640px){.search input{width:100%}.search{flex:1 1 100%}}
+
+/* ---------- カテゴリ ---------- */
+main{position:relative;z-index:1;padding-bottom:80px}
+.cat{padding-top:54px;scroll-margin-top:132px}
+.cat-head{display:flex;align-items:flex-end;gap:18px;flex-wrap:wrap;border-bottom:1px solid var(--line-soft);padding-bottom:14px;margin-bottom:26px}
+.cat-mark{font-family:var(--en);font-size:52px;font-weight:600;color:var(--gold);line-height:.85;letter-spacing:.02em}
+.cat-txt{flex:1 1 240px}
+.cat-txt h2{font-family:var(--serif);font-size:20px;font-weight:600;letter-spacing:.08em}
+.cat-txt p{font-size:12.5px;color:var(--muted);margin-top:2px}
+.cat-prog{text-align:right;font-size:12px;color:var(--muted);min-width:120px}
+.cat-prog b{font-family:var(--en);font-size:19px;color:var(--gold-bright);font-weight:600}
+.bar{width:120px;height:2px;background:rgba(255,255,255,.1);margin-top:7px;margin-left:auto;overflow:hidden}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--gold-dim),var(--gold-bright));transition:width .5s ease}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(292px,1fr));gap:14px}
+.card{
+  position:relative;text-align:left;cursor:pointer;font-family:var(--sans);color:inherit;
+  border:1px solid var(--line-soft);border-radius:4px;padding:20px 20px 18px;
+  background:linear-gradient(165deg,rgba(26,49,87,.34),rgba(10,23,41,.5));
+  transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease;overflow:hidden
+}
+.card::before{
+  content:'';position:absolute;left:0;top:0;bottom:0;width:2px;
+  background:linear-gradient(180deg,var(--gold),transparent);opacity:0;transition:opacity .2s
+}
+.card:hover{transform:translateY(-3px);border-color:var(--line);box-shadow:var(--shadow)}
+.card:hover::before{opacity:1}
+.card:focus-visible{outline:1px solid var(--gold);outline-offset:2px}
+.card.active{border-color:var(--gold);background:linear-gradient(165deg,rgba(200,169,106,.14),rgba(10,23,41,.62))}
+.card.active::before{opacity:1}
+.card-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px}
+.card-no{font-family:var(--en);font-size:13px;letter-spacing:.22em;color:var(--gold)}
+.card-time{font-size:11px;letter-spacing:.1em;color:var(--muted)}
+.card h3{font-family:var(--serif);font-size:15.5px;font-weight:600;line-height:1.6;letter-spacing:.03em;margin-bottom:8px}
+.card p{font-size:12.5px;color:var(--muted);line-height:1.75}
+.card-foot{display:flex;align-items:center;gap:8px;margin-top:14px;padding-top:12px;border-top:1px solid var(--line-soft)}
+.chip{font-size:10.5px;letter-spacing:.12em;padding:3px 9px;border-radius:2px;border:1px solid var(--line-soft);color:var(--muted)}
+.chip.ready{border-color:rgba(200,169,106,.5);color:var(--gold-bright)}
+.chip.soon{border-color:rgba(255,255,255,.13);color:#7F8DA4}
+.chip.hold{border-color:rgba(196,120,110,.45);color:#D79A92}
+.chip.supp{border-color:rgba(141,156,181,.4);color:var(--ivory-dim)}
+.done{margin-left:auto;display:flex;align-items:center;gap:5px;font-size:11px;color:var(--gold-bright);opacity:0;transition:opacity .2s}
+.card.watched .done{opacity:1}
+.card.watched h3{color:var(--ivory-dim)}
+.empty-msg{padding:48px 0;text-align:center;color:var(--muted);font-size:13px}
+
+/* ---------- フッター ---------- */
+footer{position:relative;z-index:1;border-top:1px solid var(--line);padding:34px 0 46px;text-align:center}
+footer .fline{width:44px;height:1px;background:var(--gold);margin:0 auto 16px}
+footer p{font-size:11.5px;letter-spacing:.16em;color:var(--muted);line-height:2}
+footer .en{font-family:var(--en);letter-spacing:.34em;color:var(--gold);font-size:12px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap hdr">
+    <div class="brand">
+      <div class="crest"><span>梅</span></div>
+      <div class="brand-txt">
+        <div class="brand-name">梅光学院　OSプロジェクト</div>
+        <div class="brand-sub">Lecture Library</div>
+      </div>
+    </div>
+    <div class="hdr-progress">
+      <div class="txt" style="text-align:right">
+        <div class="lbl">YOUR PROGRESS</div>
+        <div class="val" id="progText">0 / 0 本</div>
+      </div>
+      <div class="ring">
+        <svg width="44" height="44" viewBox="0 0 44 44">
+          <circle class="bg" cx="22" cy="22" r="19" fill="none" stroke-width="2"></circle>
+          <circle class="fg" id="ringFg" cx="22" cy="22" r="19" fill="none" stroke-width="2" stroke-dasharray="0 120"></circle>
+        </svg>
+        <b id="progPct">0%</b>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Open School Project</div>
+    <h1>知識と型は、<em>動画</em>で。<br>判断は、<em>対話</em>で。</h1>
+    <div class="rule"></div>
+    <p>オープンスクールプロジェクト マーケティングチームの講義動画ライブラリです。ここにある内容は「半年変わらないもの」だけを集めています。見れば手が動き、見れば自分で判断できる状態になることが目的です。</p>
+    <div class="stats">
+      <div class="stat"><b id="statTotal">0</b><span>LECTURES</span></div>
+      <div class="stat"><b id="statMin">0</b><span>MINUTES</span></div>
+      <div class="stat"><b>4</b><span>CATEGORIES</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="guide">
+  <div class="wrap">
+    <div class="guide-inner">
+      <h2>視聴の進め方</h2>
+      <p class="note">A → B → 配属先のC の順。各カテゴリ内は番号順に見るだけで大丈夫です。</p>
+      <div class="steps">
+        <div class="step"><i>01</i><strong>A｜全員必修</strong><small>チームの一員として動ける状態になる。入ったらまずここから。</small></div>
+        <div class="step"><i>02</i><strong>B｜考え方</strong><small>全部門が同じ言葉で話せるようにする。本命のカテゴリ。</small></div>
+        <div class="step"><i>03</i><strong>C｜部門別</strong><small>自分の配属先だけでよい。手が動くようになる型。</small></div>
+        <div class="step"><i>04</i><strong>1対1の対話</strong><small>個別のフィードバックと判断は、動画ではなく桂と直接。</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="stage" id="stage">
+  <div class="wrap">
+    <div class="stage-inner">
+      <div class="frame" id="frame">
+        <div class="empty">
+          <svg width="46" height="46" viewBox="0 0 48 48" fill="none" stroke="#C8A96A" stroke-width="1.2">
+            <rect x="4" y="10" width="40" height="28" rx="2"/><path d="M20 19l10 5-10 5z" fill="#C8A96A" stroke="none"/>
+          </svg>
+          <b>PLAYER</b>
+          <span>下の一覧から講義を選ぶと、ここで再生されます。</span>
+        </div>
+      </div>
+      <div class="stage-bar">
+        <div class="stage-meta">
+          <div class="kicker" id="stageKicker">SELECT A LECTURE</div>
+          <h3 id="stageTitle">視聴する講義を選んでください</h3>
+          <p id="stageDesc">下の一覧から選ぶと、ここで再生されます。</p>
+        </div>
+        <div class="stage-actions">
+          <button class="btn" id="btnPrev" type="button" disabled>← 前の講義</button>
+          <button class="btn" id="btnNext" type="button" disabled>次の講義 →</button>
+          <button class="btn btn-gold" id="btnWatch" type="button" disabled>視聴済みにする</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="toolbar">
+  <div class="wrap toolbar-inner">
+    <div class="tabs" id="tabs" role="tablist"></div>
+    <label class="toggle"><input type="checkbox" id="onlyUnwatched"> 未視聴のみ</label>
+    <div class="search">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#8D9CB5" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+      <input type="search" id="search" placeholder="講義を検索" aria-label="講義を検索">
+    </div>
+  </div>
+</div>
+
+<main class="wrap" id="main"></main>
+
+<footer>
+  <div class="fline"></div>
+  <p class="en">Baiko Gakuin &middot; Open School Project</p>
+  <p>学内共有用のページです。外部への転載・共有はしないでください。</p>
+</footer>
+
+<script>
+/* =========================================================================
+   ① 動画IDの設定（ここだけ編集すればOK）
+   YouTubeに「限定公開」でアップし、URL https://www.youtube.com/watch?v=XXXXXXXXXXX
+   の XXXXXXXXXXX を youtube:'' の '' の中に貼るだけで、そのカードが再生可能になります。
+   空のままのものは「準備中」と表示されます。
+   ========================================================================= */
+const VIDEOS = [
+  /* ---- A. 全員必修（8本） ---- */
+  {id:'A-1', cat:'A', title:'このプロジェクトが目指すもの', desc:'今年の目標人数と、なぜその数字なのか。何のためにやっているのか。', min:5,  youtube:''},
+  {id:'A-2', cat:'A', title:'やってはいけないこと',         desc:'学校名・肩書き・数字・個人情報・SNS掲載の線引き。議論の余地なく守るルール。', min:5, youtube:'', status:'hold', note:'対外使用許可の確定待ち'},
+  {id:'A-3', cat:'A', title:'週の回り方',                   desc:'週初に共有シートを書く／週末30分の会議／依頼は週初にまとめて出す。', min:5,  youtube:''},
+  {id:'A-4', cat:'A', title:'自分で決めていいこと・いけないこと', desc:'桂が握る3つ（数値配分・対外線引き・予算総枠）と、それ以外はリーダー判断。', min:5, youtube:''},
+  {id:'A-5', cat:'A', title:'健全な恐怖を持つ',             desc:'個人の失敗はチームの失敗。だから早く言う、早く直す。', min:5,  youtube:''},
+  {id:'A-6', cat:'A', title:'仲間と競い合い、喰いあって成長する', desc:'協力と競争は矛盾しない。チーム内で高め合うということ。', min:5, youtube:''},
+  {id:'A-7', cat:'A', title:'厳しい現実をそのまま伝える／会議は必ず発言する', desc:'率直さの文化。事実を曲げない、黙って座らない。', min:5, youtube:''},
+  {id:'A-8', cat:'A', title:'結果がすべて／週次の振り返りと事実の報告', desc:'週1回、桂へ事実を報告する。振り返りの型。', min:5, youtube:''},
+
+  /* ---- B. 考え方＝共通言語（9本＋補足1本） ---- */
+  {id:'B-1', cat:'B', title:'マーケティングの本質と価値設計', desc:'消費者視点とは何か。理論編の起点になる回。', min:8,  youtube:'Ww0EYioDaiM'},
+  {id:'B-2', cat:'B', title:'人数はどう作られるか',           desc:'母集団 × 認知率 × 選択率。ダブルジョパディの法則。', min:10, youtube:'5afuUYNYyI8'},
+  {id:'B-3', cat:'B', title:'戦略とは何か',                   desc:'資源・選択と集中・目的戦略戦術・逆算とPDCA。', min:13, youtube:'b3IoA4AW8_Q'},
+  {id:'B-4', cat:'B', title:'本音を掘る、そしてブランドを選ぶ', desc:'本能・ブランドエクイティ・戦略エクイティ。', min:13, youtube:'QcN_YIGFN8U'},
+  {id:'B-5', cat:'B', title:'記号論で見るブランド',           desc:'ロゴ・色・言葉が意味を運ぶ仕組み。', min:10, youtube:'puSpc9a6SLA'},
+  {id:'B-6', cat:'B', title:'言い方を作る',                   desc:'STC・RTB／組み立ての型「STC→便益→RTB→CTA」。', min:10, youtube:'ovBxgnVZ3PI'},
+  {id:'B-7', cat:'B', title:'行動経済学で人を動かす',         desc:'損失回避・アンカリング・社会的証明・希少性。', min:12, youtube:'lhHI7ylUEz0'},
+  {id:'B-8', cat:'B', title:'メンタルアベイラビリティとフィジカルアベイラビリティ', desc:'思い出される力と、参加しやすさ。摩擦と歩留まり。', min:10, youtube:'mpXz5jU0i_U'},
+  {id:'B-9', cat:'B', title:'どこで思い出されるか',           desc:'カテゴリーエントリーポイント（CEP）。なぜ広告より営業が効くのか。', min:10, youtube:'YWKWWYVp7PI'},
+  {id:'B-10',cat:'B', title:'STC・便益・RTBを深掘りする',     desc:'B-6の型を1つずつ丁寧に解説する補足教材（スライド14枚）。', min:0,  youtube:'VUaaJbBpCc4', status:'supp', note:'補足教材'},
+
+  /* ---- C-2. SNS・分析（4本） ---- */
+  {id:'C2-1', cat:'C2', title:'公式LINE運用',                 desc:'導線設計と実務。認知→教育→来校のうち「教育」を担う。', min:18, youtube:''},
+  {id:'C2-2', cat:'C2', title:'Instagram運用',                desc:'投稿の切り口とアカウント運営。フィード・ストーリーズ・リールの役割。', min:18, youtube:''},
+  {id:'C2-3', cat:'C2', title:'数字の見方',                   desc:'何を見て、何を無視するか。数字が動かないときに何を疑うか。', min:10, youtube:''},
+  {id:'C2-4', cat:'C2', title:'リール制作の注意点と見るべき数値', desc:'最初の1〜3秒のフック設計と、視聴維持率・保存率の読み方。', min:10, youtube:'', note:'編集チームと合同視聴推奨'},
+
+  /* ---- C-3. 編集チーム（3本） ---- */
+  {id:'C3-1', cat:'C3', title:'動画構成の型',                 desc:'フック→本編→CTA。60秒版・15秒版の組み立て。', min:15, youtube:''},
+  {id:'C3-2', cat:'C3', title:'撮影チェックリスト',           desc:'撮る前に確認すること。撮り直しを防ぐ。', min:5,  youtube:''},
+  {id:'C3-3', cat:'C3', title:'テンプレート運用と依頼の受け方', desc:'使い回せる型を先に作る／依頼の優先順位は編集が決める。', min:10, youtube:''}
+];
+
+const CATEGORIES = [
+  {key:'A',  mark:'A',  label:'全員必修',   sub:'全メンバー・入ったら最初に見る'},
+  {key:'B',  mark:'B',  label:'考え方',     sub:'全メンバー・共通言語をつくる本命カテゴリ'},
+  {key:'C2', mark:'C2', label:'SNS・分析',  sub:'SNS・分析担当のみ'},
+  {key:'C3', mark:'C3', label:'編集チーム', sub:'編集チームのみ'}
+];
+
+/* =========================================================================
+   ② 以下はロジック（通常は編集不要）
+   ========================================================================= */
+const STORE = 'baiko-os-lecture-watched';
+const $ = s => document.querySelector(s);
+
+let watched = new Set();
+try { watched = new Set(JSON.parse(localStorage.getItem(STORE) || '[]')); } catch(e){ watched = new Set(); }
+const save = () => { try { localStorage.setItem(STORE, JSON.stringify([...watched])); } catch(e){} };
+
+let current = null;      // 再生中の講義id
+let filterCat = 'ALL';
+let keyword = '';
+let onlyUnwatched = false;
+
+const byId = id => VIDEOS.find(v => v.id === id);
+const catOf = key => CATEGORIES.find(c => c.key === key);
+const statusOf = v => v.status ? v.status : (v.youtube ? 'ready' : 'soon');
+const statusLabel = {ready:'視聴できます', soon:'準備中', hold:'公開保留', supp:'補足教材'};
+
+/* ---- タブ ---- */
+function renderTabs(){
+  const tabs = $('#tabs');
+  const items = [{key:'ALL', text:'すべて'}].concat(
+    CATEGORIES.map(c => ({key:c.key, text:c.mark + '｜' + c.label}))
+  );
+  tabs.innerHTML = '';
+  items.forEach(it => {
+    const b = document.createElement('button');
+    b.className = 'tab';
+    b.type = 'button';
+    b.setAttribute('role','tab');
+    b.setAttribute('aria-selected', String(filterCat === it.key));
+    b.textContent = it.text;
+    b.addEventListener('click', () => { filterCat = it.key; renderTabs(); renderList(); });
+    tabs.appendChild(b);
+  });
+}
+
+/* ---- 一覧 ---- */
+function matches(v){
+  if(filterCat !== 'ALL' && v.cat !== filterCat) return false;
+  if(onlyUnwatched && watched.has(v.id)) return false;
+  if(keyword){
+    const hay = (v.id + ' ' + v.title + ' ' + v.desc + ' ' + (v.note||'')).toLowerCase();
+    if(!hay.includes(keyword)) return false;
+  }
+  return true;
+}
+
+function renderList(){
+  const main = $('#main');
+  main.innerHTML = '';
+  let shown = 0;
+
+  CATEGORIES.forEach(c => {
+    const all  = VIDEOS.filter(v => v.cat === c.key);
+    const list = all.filter(matches);
+    if(!list.length) return;
+    shown += list.length;
+
+    const done = all.filter(v => watched.has(v.id)).length;
+    const pct  = all.length ? Math.round(done / all.length * 100) : 0;
+
+    const sec = document.createElement('section');
+    sec.className = 'cat';
+    sec.id = 'cat-' + c.key;
+    sec.innerHTML =
+      '<div class="cat-head">' +
+        '<div class="cat-mark">' + c.mark + '</div>' +
+        '<div class="cat-txt"><h2>' + c.label + '</h2><p>' + c.sub + '　全' + all.length + '本</p></div>' +
+        '<div class="cat-prog"><b>' + done + '</b> / ' + all.length + ' 本 視聴済み' +
+          '<span class="bar"><i style="width:' + pct + '%"></i></span></div>' +
+      '</div>' +
+      '<div class="grid"></div>';
+
+    const grid = sec.querySelector('.grid');
+    list.forEach(v => grid.appendChild(card(v)));
+    main.appendChild(sec);
+  });
+
+  if(!shown){
+    const p = document.createElement('p');
+    p.className = 'empty-msg';
+    p.textContent = '条件に合う講義がありません。検索語やフィルタを変えてみてください。';
+    main.appendChild(p);
+  }
+  updateProgress();
+}
+
+function card(v){
+  const st = statusOf(v);
+  const b = document.createElement('button');
+  b.type = 'button';
+  b.className = 'card' + (watched.has(v.id) ? ' watched' : '') + (current === v.id ? ' active' : '');
+  b.dataset.id = v.id;
+  b.innerHTML =
+    '<div class="card-top">' +
+      '<span class="card-no">' + v.id + '</span>' +
+      '<span class="card-time">' + (v.min ? v.min + ' min' : 'SLIDE') + '</span>' +
+    '</div>' +
+    '<h3>' + esc(v.title) + '</h3>' +
+    '<p>' + esc(v.desc) + '</p>' +
+    '<div class="card-foot">' +
+      '<span class="chip ' + st + '">' + statusLabel[st] + '</span>' +
+      (v.note ? '<span class="chip">' + esc(v.note) + '</span>' : '') +
+      '<span class="done">✓ 視聴済み</span>' +
+    '</div>';
+  b.addEventListener('click', () => select(v.id, true));
+  return b;
+}
+
+function esc(s){
+  return String(s).replace(/[&<>"]/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[ch]));
+}
+
+/* ---- プレーヤー ---- */
+function select(id, scroll){
+  const v = byId(id);
+  if(!v) return;
+  current = id;
+  history.replaceState(null, '', '#' + id);
+
+  const cat = catOf(v.cat);
+  $('#stageKicker').textContent = v.id + ' / ' + cat.mark + '｜' + cat.label;
+  $('#stageTitle').textContent = v.title;
+  $('#stageDesc').textContent  = v.desc + (v.min ? '　（約' + v.min + '分）' : '');
+
+  const frame = $('#frame');
+  if(v.youtube){
+    frame.innerHTML = '<iframe src="https://www.youtube.com/embed/' + encodeURIComponent(v.youtube) +
+      '?rel=0&modestbranding=1&playsinline=1" title="' + esc(v.title) +
+      '" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
+  }else{
+    const msg = statusOf(v) === 'hold'
+      ? '対外使用の許可が確定してから撮影・公開します。それまで非公開です。'
+      : (statusOf(v) === 'supp'
+        ? 'スライドのみの補足教材です。動画にする場合はここに公開されます。'
+        : '撮影・編集が終わりしだい、ここで公開されます。台本とスライドは準備できています。');
+    frame.innerHTML =
+      '<div class="empty">' +
+        '<svg width="46" height="46" viewBox="0 0 48 48" fill="none" stroke="#C8A96A" stroke-width="1.2">' +
+          '<rect x="4" y="10" width="40" height="28" rx="2"/><path d="M20 19l10 5-10 5z" fill="#C8A96A" stroke="none"/>' +
+        '</svg>' +
+        '<b>' + statusLabel[statusOf(v)] + '</b>' +
+        '<span>' + msg + '</span>' +
+      '</div>';
+  }
+
+  const btn = $('#btnWatch');
+  btn.disabled = false;
+  setWatchBtn(watched.has(id));
+
+  const order = VIDEOS.map(x => x.id);
+  const i = order.indexOf(id);
+  $('#btnPrev').disabled = i <= 0;
+  $('#btnNext').disabled = i >= order.length - 1;
+  $('#btnPrev').onclick = () => select(order[i-1], true);
+  $('#btnNext').onclick = () => select(order[i+1], true);
+
+  document.querySelectorAll('.card').forEach(c => c.classList.toggle('active', c.dataset.id === id));
+  if(scroll) $('#stage').scrollIntoView({behavior:'smooth', block:'start'});
+}
+
+function setWatchBtn(on){
+  const btn = $('#btnWatch');
+  btn.classList.toggle('on', on);
+  btn.textContent = on ? '✓ 視聴済み（解除する）' : '視聴済みにする';
+}
+
+$('#btnWatch').addEventListener('click', () => {
+  if(!current) return;
+  if(watched.has(current)) watched.delete(current); else watched.add(current);
+  save();
+  setWatchBtn(watched.has(current));
+  renderList();
+  document.querySelectorAll('.card').forEach(c => c.classList.toggle('active', c.dataset.id === current));
+});
+
+/* ---- 進捗 ---- */
+function updateProgress(){
+  const total = VIDEOS.length;
+  const done  = VIDEOS.filter(v => watched.has(v.id)).length;
+  const pct   = total ? Math.round(done / total * 100) : 0;
+  $('#progText').textContent = done + ' / ' + total + ' 本';
+  $('#progPct').textContent  = pct + '%';
+  const c = 2 * Math.PI * 19;
+  $('#ringFg').setAttribute('stroke-dasharray', (c * pct / 100).toFixed(1) + ' ' + c.toFixed(1));
+}
+
+/* ---- 検索・フィルタ ---- */
+$('#search').addEventListener('input', e => { keyword = e.target.value.trim().toLowerCase(); renderList(); });
+$('#onlyUnwatched').addEventListener('change', e => { onlyUnwatched = e.target.checked; renderList(); });
+
+/* ---- 初期化 ---- */
+$('#statTotal').textContent = VIDEOS.length;
+$('#statMin').textContent   = VIDEOS.reduce((s,v) => s + (v.min||0), 0);
+renderTabs();
+renderList();
+
+const hash = decodeURIComponent(location.hash.replace('#',''));
+if(hash && byId(hash)) select(hash, false);
+</script>
+</body>
+</html>
